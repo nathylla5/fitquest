@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.fit_quest.ui.modules.pages.CreateExercise
+import com.example.fit_quest.ui.modules.pages.CreateTraining
 import com.example.fit_quest.ui.modules.pages.Exercise
 import com.example.fit_quest.ui.modules.pages.Home
 import com.example.fit_quest.ui.modules.pages.Login
@@ -24,6 +26,9 @@ fun FitQuestScreen() {
                 },
                 onCardTrainingClick = {
                     navController.navigate(Route.Training.route)
+                },
+                onCreateTraining = {
+                    navController.navigate(Route.CreateTraining.route)
                 }
             )
         }
@@ -70,6 +75,20 @@ fun FitQuestScreen() {
                     navController.popBackStack()
                 },
                onClickGoNext = {}
+            )
+        }
+        composable(Route.CreateExercise.route){
+            CreateExercise(
+                onBackCreateExercise = {
+                    navController.popBackStack()
+                }
+            )
+        }
+        composable(Route.CreateTraining.route){
+            CreateTraining (
+                onBackCreateTraining = {
+                    navController.popBackStack()
+                }
             )
         }
     }

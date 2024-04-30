@@ -58,7 +58,9 @@ fun Login(
 
     lateinit var auth: FirebaseAuth;
     auth = Firebase.auth
-
+    if (auth.currentUser != null){
+        onLogin()
+    }
     fun login(){
         auth.signInWithEmailAndPassword(emailState.value,passwordState.value).addOnCompleteListener{task ->
             if (task.isSuccessful){
@@ -100,16 +102,16 @@ fun Login(
                 }
                 item {
                     InputItem(
-                        data = emailState,
+                        state = emailState,
                         text = "E-mail",
-                        VisualTransformation.None
+                        passwordVisualTransformation = VisualTransformation.None
                     )
                     Spacer(modifier = Modifier.height(16.dp))
 
                     InputItem(
-                        data = passwordState,
+                        state = passwordState,
                         text = "Senha",
-                        PasswordVisualTransformation()
+                        passwordVisualTransformation = PasswordVisualTransformation()
                     )
                 }
             }

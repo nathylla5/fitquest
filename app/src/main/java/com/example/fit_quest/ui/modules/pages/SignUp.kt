@@ -131,21 +131,21 @@ fun SignUp(
                 LazyColumn(modifier = Modifier.fillMaxWidth()) {
                     item {
                         InputItem(
-                            data = nameState, text = "Nome completo", VisualTransformation.None
+                            state = nameState, text = "Nome completo", passwordVisualTransformation = VisualTransformation.None
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                         InputItem(
-                            data = emailState, text = "Email", PasswordVisualTransformation()
+                            state = emailState, text = "Email", passwordVisualTransformation = PasswordVisualTransformation()
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                         InputItem(
-                            data = passwordState, text = "Senha", PasswordVisualTransformation()
+                            state = passwordState, text = "Senha", passwordVisualTransformation = PasswordVisualTransformation()
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                         InputItem(
-                            data = passwordState,
+                            state = passwordState,
                             text = "Confirme sua senha",
-                            PasswordVisualTransformation()
+                            passwordVisualTransformation = PasswordVisualTransformation()
                         )
                         Spacer(modifier = Modifier.height(32.dp))
                     }
